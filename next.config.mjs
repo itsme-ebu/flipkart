@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["rukminim2.flixcart.com", "learnbestcoding.com"],
+    domains: [
+      "rukminim2.flixcart.com",
+      "static-assets-web.flixcart.com",
+      "daisyui.com",
+      "rukminim1.flixcart.com",
+    ],
   },
 };
 

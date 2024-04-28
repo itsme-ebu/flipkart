@@ -24,6 +24,7 @@ export default function Home() {
             reviews={prod.reviews}
             old_price={prod.old_price}
             brand={prod.brand}
+            id={prod.id}
           />
         ))}
       </div>
