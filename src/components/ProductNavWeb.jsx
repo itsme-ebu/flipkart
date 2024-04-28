@@ -40,8 +40,10 @@ function ProductNavWeb() {
         </div>
       </div>
       <div className="flex items-center justify-between px-10 py-3 border-b">
-        {navList.map((item) => (
-          <p className="text-sm font-medium">{item}</p>
+        {navList.map((item, i) => (
+          <p className="text-sm font-medium" key={i}>
+            {item}
+          </p>
         ))}
       </div>
     </nav>

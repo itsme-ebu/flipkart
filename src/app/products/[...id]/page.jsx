@@ -10,7 +10,7 @@ import ProductNavWeb from "@/components/ProductNavWeb";
 import DesktopProduct from "@/components/DesktopProduct";
 import wow_deal from "../../../../public/img/wow.svg";
 
-function page() {
+function Page() {
   const pathname = usePathname().slice(10);
   const product = products.filter((prod) => prod.id == pathname)[0];
   return (
@@ -150,4 +150,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
