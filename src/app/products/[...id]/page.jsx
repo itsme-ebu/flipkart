@@ -11,6 +11,7 @@ import ProductNavWeb from "@/components/ProductNavWeb";
 import DesktopProduct from "@/components/DesktopProduct";
 import wow_deal from "../../../../public/img/wow.svg";
 import Product from "@/components/Product";
+import Link from "next/link";
 
 function Page() {
   const pathname = usePathname().slice(10);
@@ -213,11 +214,7 @@ function Page() {
             Pay with EMI
           </button>
           <button className="bg-[#FFC200] h-[60%] px-8 rounded-md">
-            <a
-              href={`upi://pay?pa=7029567488@ybl&pn=AkashComputer&cu=INR&am=${product.price}`}
-            >
-              Buy Now
-            </a>
+            <Link href={`/checkout/${product.id}`}>Buy Now</Link>
           </button>
         </div>
       </div>
