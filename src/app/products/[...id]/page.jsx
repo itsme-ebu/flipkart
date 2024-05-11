@@ -6,9 +6,11 @@ import Image from "next/image";
 import ProductNav from "@/components/ProductNav";
 import { BsCartPlus } from "react-icons/bs";
 import { IoStar, IoStarHalfSharp } from "react-icons/io5";
+import { IoIosArrowDropright } from "react-icons/io";
 import ProductNavWeb from "@/components/ProductNavWeb";
 import DesktopProduct from "@/components/DesktopProduct";
 import wow_deal from "../../../../public/img/wow.svg";
+import Product from "@/components/Product";
 
 function Page() {
   const pathname = usePathname().slice(10);
@@ -104,7 +106,7 @@ function Page() {
           </h2>
           <h2>if ordered before 12:00AM </h2>
         </div>
-        <div className="w-full h-full mb-32 py-5 grid grid-cols-3 text-center items-center px-4 bg-white">
+        <div className="w-full h-full py-5 grid grid-cols-3 text-center items-center px-4 bg-white">
           <div>
             <Image
               src="https://rukminim2.flixcart.com/www/110/48/promos/12/08/2021/cf3f075e-cb6e-4f06-abb8-554633b1bf96.png?q=60"
@@ -135,13 +137,87 @@ function Page() {
             <p className="text-[10px] mt-1">Plus (F-Assured) </p>
           </div>
         </div>
+        <div className=" bg-white ">
+          <div className="flex items-center gap-5 p-4 relative  border-b">
+            <Image src={product.thumbnail} width={30} height={30} />
+            Similar Products
+            <IoIosArrowDropright
+              className=" absolute top-1/3 right-2"
+              size={"1.5em"}
+              color="grey"
+            />
+          </div>
+          <div className="flex flex-wrap items-center text-black lg:gap-5 lg:justify-center">
+            {products.map((prod) => (
+              <Product
+                key={prod.id}
+                thumbnail={prod.thumbnail}
+                name={prod.name}
+                price={prod.price}
+                reviews={prod.reviews}
+                old_price={prod.old_price}
+                brand={prod.brand}
+                id={prod.id}
+              />
+            ))}
+          </div>
+        </div>
+        <div className="mb-20 flex flex-col gap-5 bg-white p-3">
+          <h2 className="mb-3">Product Highlights</h2>
+          <p>Three-sided Cooling Pads </p>
+          <Image
+            src="https://rukminim2.flixcart.com/image/760/760/cms-rpd-images/75a124d7056540bebe6a999e84473c8d_180f59c2f47_image.jpeg?q=60"
+            width={500}
+            height={500}
+          />
+          <p className="text-sm">
+            Thanks to its three-sided cooling pads, the Bajaj 24 L Personal Air
+            Cooler ensures an enhanced cooling experience.
+          </p>
+          <p>Turbo Fan</p>
+          <Image
+            src="https://rukminim2.flixcart.com/image/760/760/cms-rpd-images/13c12f8d8a6f4760b8000b07a8ceed17_180f59c4e6a_image.jpeg?q=60"
+            width={500}
+            height={500}
+          />
+          <p className="text-sm">
+            With its turbo fan technology, this air cooler ensures quick airflow
+            at a high speed. So, you can get rapid relief from the scorching
+            summer heat.
+          </p>
+          <p>Large Tank</p>
+          <Image
+            src="https://rukminim2.flixcart.com/image/760/760/cms-rpd-images/1a6734aec73b4efd9e39aa700a454bd5_180f59c8e7d_image.jpeg?q=60"
+            width={500}
+            height={500}
+          />
+          <p className="text-sm">
+            Built with a large tank with a capacity of up to 24 L, this air
+            cooler ensures long-lasting cooling. This way, it eliminates the
+            need to frequently refill the t...
+          </p>
+          <p>Consistant Airflow</p>
+          <Image
+            src="https://rukminim2.flixcart.com/image/760/760/cms-rpd-images/77a3dc9174e945e1846861db9cecd2fd_180f59cb017_image.jpeg?q=60"
+            width={500}
+            height={500}
+          />
+          <p className="text-sm">
+            With an overall area coverage of up to 69.67 sq. m (750), this air
+            cooler can consistently cool down any large indoor area in no time.
+          </p>
+        </div>
         <div className="w-full bg-white h-20 px-4 flex items-center justify-between bottom-0 left-0 fixed">
           <BsCartPlus size={"1.8em"} />
           <button className="border rounded-md h-[60%] px-4">
             Pay with EMI
           </button>
           <button className="bg-[#FFC200] h-[60%] px-8 rounded-md">
-            Buy Now
+            <a
+              href={`upi://pay?pa=7029567488@ybl&pn=AkashComputer&cu=INR&am=${product.price}`}
+            >
+              Buy Now
+            </a>
           </button>
         </div>
       </div>

@@ -14,7 +14,7 @@ export default function Home() {
         />
       </div>
 
-      <div className="flex flex-wrap items-center lg:gap-5 lg:justify-center">
+      <div className="flex flex-wrap items-center text-black lg:gap-5 lg:justify-center">
         {products.map((prod) => (
           <Product
             key={prod.id}
